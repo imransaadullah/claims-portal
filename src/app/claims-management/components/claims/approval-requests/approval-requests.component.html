@@ -1,4 +1,3 @@
-<p>approval-requests works!</p>
 <!-- Table responsive wrapper -->
 <div class="table-responsive mx-3">
     <!--Table-->
@@ -67,140 +66,52 @@
     </div>
     <div class="modal-body">
         <!-- Table responsive wrapper -->
-    <div class="table-responsive mx-3">
-        <!--Table-->
-        <table class="table table-hover mb-0">
-            <!--Table head-->
-            <thead>
-                <tr>
-                    <!-- <th>
-                    <input class="form-check-input" type="checkbox" id="checkbox"> 
-                    <label for="checkbox" class="mr-2 label-table"></label>
-                    </th> -->
-                    <!-- <th class="th-lg"><a>S/N <i class="fas fa-sort ml-1"></i></a></th> -->
-                    <th class="th-lg"><a>Service<i class="fas fa-sort ml-1"></i></a></th>
-                    <th class="th-lg"><a>Dose<i class="fas fa-sort ml-1"></i></a></th>
-                    <th class="th-lg"><a>Cost<i class="fas fa-sort ml-1"></i></a></th>
-                    <!-- <th></th> -->
-                </tr>
-            </thead>
-            <!--Table head-->
+        <div class="table-responsive mx-3">
+            <!--Table-->
+            <table class="table table-hover mb-0">
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <!-- <th>
+                        <input class="form-check-input" type="checkbox" id="checkbox"> 
+                        <label for="checkbox" class="mr-2 label-table"></label>
+                        </th> -->
+                        <!-- <th class="th-lg"><a>S/N <i class="fas fa-sort ml-1"></i></a></th> -->
+                        <th class="th-lg"><a>Service<i class="fas fa-sort ml-1"></i></a></th>
+                        <th class="th-lg"><a>Dose<i class="fas fa-sort ml-1"></i></a></th>
+                        <th class="th-lg"><a>Cost<i class="fas fa-sort ml-1"></i></a></th>
+                        <!-- <th></th> -->
+                    </tr>
+                </thead>
+                <!--Table head-->
 
-            <!--Table body-->
-            <tbody>
-                <tr *ngFor="let dat of data; let id = index">
-                    <!-- <th scope="row">
-                        <input class="form-check-input" type="checkbox" id="checkbox{{id}}">
-                        <label for="checkbox{{id}}" class="label-table"></label>
-                    </th> -->
-                    <!-- <td>{{ claim.id }}</td> -->
-                    <td>{{ dat.Service }}</td>
-                    <td>{{ dat.Dose }}</td>
-                    <td>{{ dat.Cost }}</td>
-                    <!-- <td>
-                        <a><i class="fas fa-info mx-1" data-toggle="tooltip" data-placement="top"
-                            title="Tooltip on top"></i></a>
-                        <a><i class="fas fa-pen-square mx-1"></i></a>
-                        <a><i class="fas fa-times mx-1"></i></a>
-                    </td> -->
-                </tr>
-            </tbody>
-            <!--Table body-->
-        </table>
-        <!--Table-->
-    </div>
-    <!-- Table responsive wrapper -->
-        <div class="row">
-            <!-- <div class="form-group col-md-12">
-                <input type="text" class="form-control" placeholder="Provider Name" [(ngModel)]="selectedClaim.id">
-            </div>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" placeholder="Username" [(ngModel)]="selectedClaim.provider">
-            </div>
-            <div class="form-group col-md-6">
-                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="selectedClaim.package">
-            </div>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" placeholder="State" [(ngModel)]="selectedClaim.time">
-            </div>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" placeholder="LGA" [(ngModel)]="selctedClaim.cost">
-            </div>
-            <div class="form-group col-md-12">
-                <textarea class="form-control" placeholder="Full Address" [(ngModel)]="newProvider['Address']"></textarea>
-            </div> -->
+                <!--Table body-->
+                <tbody>
+                    <tr *ngFor="let dat of data; let id = index">
+                        <!-- <th scope="row">
+                            <input class="form-check-input" type="checkbox" id="checkbox{{id}}">
+                            <label for="checkbox{{id}}" class="label-table"></label>
+                        </th> -->
+                        <!-- <td>{{ claim.id }}</td> -->
+                        <td>{{ dat.Service }}</td>
+                        <td>{{ dat.Dose }}</td>
+                        <td>{{ dat.Cost }}</td>
+                        <!-- <td>
+                            <a><i class="fas fa-info mx-1" data-toggle="tooltip" data-placement="top"
+                                title="Tooltip on top"></i></a>
+                            <a><i class="fas fa-pen-square mx-1"></i></a>
+                            <a><i class="fas fa-times mx-1"></i></a>
+                        </td> -->
+                    </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
         </div>
+        <!-- Table responsive wrapper -->
     </div>
     <!-- <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="approveClaim()">Save</button>
         <button type="button" class="btn btn-outline-dark" (click)="rejectClaim()">Save</button>
     </div> -->
 </ng-template>
-<!-- <div class="col-5"> -->
-    <div class="table-responsive" style="background-color: #fff;">
-        <table class="table text-nowrap" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
-            <thead>
-                <tr>
-                    <th>IID</th>
-                    <th>Provider</th>
-                    <th>Package</th>
-                    <!-- <th>Status</th> -->
-                    <th class="text-center" style="width: 20px;">
-                        <!-- <i class="icon-arrow-down12"></i> -->
-                        Time
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let claim of claims; let index=index;" (click)="selectedClaim = claim; setSelectedClaim();">
-                    <td>{{claim.id}}</td>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <a class="text-default font-weight-semibold">{{claim.provider}}</a>
-                                <!-- <br/> -->
-                                <!-- <span>{{claim.provider}}</span> -->
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <a class="text-default">{{claim.package}}</a>
-                                <!-- <br/> -->
-                                <!-- <span>{{claim.package}}</span> -->
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <a class="text-default">{{claim.time}}</a>
-                                <!-- <br/> -->
-                                <!-- <span>{{claim.time}}</span> -->
-                            </div>
-                        </div>
-                    </td>
-                    <!-- <td><span class="badge bg-blue">Active</span></td> -->
-                    <!-- <td class="text-center">
-                        <div class="list-icons">
-                            <div class="list-icons-item dropdown">
-                                <a class="list-icons-item dropdown-toggle caret-0" data-toggle="dropdown"><i class="icon-menu7"></i></a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item"><i class="icon-file-stats"></i> View </a>
-                                    <a class="dropdown-item"><i class="icon-file-text2"></i> Edit </a>
-                                    <a class="dropdown-item"><i class="icon-file-locked"></i> Disable</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item"><i class="icon-gear"></i> Settings</a>
-                                </div>
-                            </div>
-                        </div>
-                    </td> -->
-                </tr>
-            </tbody>
-        </table>
-    </div>
-<!-- </div> -->
-<!-- <div class="col-7">
-    <app-process-claims [claim] = 'selectedClaim'></app-process-claims> -->
-<!-- </div> -->
