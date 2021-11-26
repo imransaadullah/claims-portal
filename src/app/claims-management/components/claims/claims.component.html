@@ -1,3 +1,4 @@
+<p>claims works!</p>
 <div class="row global-row">
 	<div class="col-md-12">
 		<!-- Marketing campaigns -->
@@ -87,12 +88,22 @@
             </div>
 		</div>
         <div class="row">
+            <div class="text-info" style="display: none; margin-left: 20px; width: 100%;" id="toggler">
             <div class="text-info" style="display: none; margin-left: 20px; width: 100%;" id="toggler" (click)="toggleClaimList()">
                 <span>
                     <i class="icon-menu7"></i>
                 </span>
             </div>
             
+            <div class="col-12" *ngIf="viewApprovalRequests" id="claimsList">
+                <app-approval-requests (selectedClaimOutput)="getSelectedClaim($event);"></app-approval-requests>
+            </div>
+            <!-- <div class="col-12" *ngIf="selectedClaim" id="claimDetail">
+                <app-process-claims [claim]="selectedClaim"></app-process-claims>
+            </div> -->
+        </div>
+	</div>
+</div>
             <div class="col-5" *ngIf="viewApprovalRequests" id="claimsList">
                 <app-approval-requests (selectedClaimOutput)="getSelectedClaim($event);"></app-approval-requests>
             </div>

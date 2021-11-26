@@ -19,6 +19,9 @@
 							<img src="{{currentStaffInfo.StaffPicture}}" class="rounded-circle mr-2" height="34" alt="">
 							<span>{{currentStaffInfo.StaffFullName}}</span>
 						</a>
+						<div class="dropdown-menu">
+							<a href="#" class="dropdown-item" (click)="logout()">Logout</a>
+						</div>
 					</li>
 				</ul>
 			</div>
@@ -33,14 +36,19 @@
 			<a href="#" class="header-elements-toggle text-white d-md-none"><i class="icon-more"></i></a>
 		</div>
 		<div class="header-elements d-none bg-transparent py-0 border-0 mb-3 mb-md-0">
-			<form action="#">
+			<!-- <form action="#">
 				<div class="form-group form-group-feedback form-group-feedback-right">
 					<input type="search" class="form-control bg-light-alpha border-transparent wmin-md-200" placeholder="Search">
 					<div class="form-control-feedback">
 						<i class="icon-search4 font-size-sm"></i>
 					</div>
 				</div>
-			</form>
+			</form> -->
+			<form class="form-inline active-pink-4">
+				<input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+				  aria-label="Search">
+				<i class="fas fa-search" aria-hidden="true"></i>
+			  </form>
 		</div>
 	</div>
 	<!-- /page header content -->
