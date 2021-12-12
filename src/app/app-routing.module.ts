@@ -4,14 +4,17 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const routes: Routes = [
   {
     path: "",
-    pathMatch: 'full',
-    redirectTo: '/admin'
-    // loadChildren: () => import("./public/public.module").then(m => m.PublicModule)
-  },
-  {
-    path: "admin",
-    loadChildren: () => import("./claims-management/claims-management.module").then(m => m.ClaimsManagementModule)
-  }
+    // pathMatch: 'full',
+    // redirectTo: '/admin'
+    loadChildren: () => import("./public/public.module").then(m => m.PublicModule)
+  } //,
+  // {
+  //   path: "admin",
+  //   loadChildren: () => import("./claims-management/claims-management.module").then(m => m.ClaimsManagementModule)
+  // },
+  // {
+  //   path: "provider"
+  // }
 ];
 
 @NgModule({

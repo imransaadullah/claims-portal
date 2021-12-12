@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+.my-card {
+    height: 50%; 
+    width: 500px; 
+    padding: 50px; 
+    border-right:5px solid #fff;
+    border-top: 10px solid #fff;
+    font-family: 'Lobster', cursive;
+    font-size: 3em;
+}

@@ -76,7 +76,8 @@
               "browserTarget": "claims-portal-ui:build:production"
             },
             "development": {
-              "browserTarget": "claims-portal-ui:build:development"
+              "browserTarget": "claims-portal-ui:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "claims-portal-ui:build"
+            "browserTarget": "claims-portal-ui:build",
           }
         },
         "test": {

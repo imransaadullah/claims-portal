@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  serverUrlEndpoint: 'https://api.emmetblue.ng/v1/',
-  // serverUrlEndpoint: 'http://localhost:705/v1/',
+  // serverUrlEndpoint: 'https://api.emmetblue.ng/v1/',
+  serverUrlEndpoint: 'http://localhost:80/aman/',
   userCookieIdentifier: '_______'
 };
 

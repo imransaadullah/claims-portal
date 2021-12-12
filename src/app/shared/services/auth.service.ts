@@ -67,4 +67,29 @@ export class AuthService {
 
     return subscription;
   }
+
+  public login(loginData: any, successCallback: any = false, errorCallback: any = false): Subscription {
+    const loginPromise = this.serverRequest.post("?login", loginData);
+    const subscription = loginPromise.subscribe((e)=>{
+      if (successCallback){
+        // console.log(e)
+        successCallback(e);
+      }
+      // console.log(e)
+    });
+
+    return subscription;
+  }
+
+  public registerUser(userData: any, successCallback: any = false, errorCallback: any = false): Subscription {
+    const registerPromise = this.serverRequest.post("?regUser", userData)
+    const subscription = registerPromise.subscribe((e) => {
+      if (successCallback){
+        successCallback(e);
+      }
+      
+    });
+
+    return subscription;
+  }
 }

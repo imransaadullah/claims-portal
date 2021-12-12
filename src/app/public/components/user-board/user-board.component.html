@@ -1,0 +1,469 @@
+<div class="page-header page-header-dark">
+    <app-header></app-header>
+</div>
+<div class="content-fluid">
+    <div class="row" style="padding: 40px 0;">
+        <div class="col-md-4 offset-md-4 align-content-center" *ngIf="!addPrincipal && !addDependents">
+            <div class="d-flex justify-content-cnter" *ngIf="!principal_user" style="width: 100%;">
+                <div style="width: 100%;">
+                    <span class="text-center btn btn-lg btn-outline-primary" style="width: 100%;" (click)="addPrincipal = true; addDependents = false;"><i class="fa fa-plus"></i> Create a principal package</span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-cnter"  style="width: 100%; margin-top: 10px;">
+                <div style="width: 100%;">
+                    <span class="text-center btn btn-lg btn-outline-primary "  style="width: 100%;" (click)="addPrincipal = false; addDependents = true;"><i class="fa fa-plus"></i> Add Dependents</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 offset-md-1" *ngIf="addPrincipal && !principal_user">
+            <div class="card p-2">
+                <h3>Principal's Bio-data</h3>
+                <div class="row global-row">
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">First Name</label>
+                                <input type="text" class="form-control" name="firstName" [(ngModel)]="newProfile['first_name']">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Surname</label>
+                                <input type="text" class="form-control" name="lastName" [(ngModel)]="newProfile['surname']">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Other Names</label>
+                                <input type="text" class="form-control" name="lastName" [(ngModel)]="newProfile['middle_name']">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label>Date Of Birth</label>
+                                <input type="date" class="form-control date" name="dateOfBirth" [(ngModel)]="newProfile['date_of_birth']">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Gender</label>
+                                <span><br/></span>
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" value="Male" class="styled" [(ngModel)]="newProfile['gender']">
+                                    Male
+                                </label>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <!-- <span><br/></span> -->
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" value="Female" class="styled" [(ngModel)]="newProfile['gender']">
+                                    Female
+                                </label>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Marital Status</label>
+                                <span><br/></span>
+                                <label class="radio-inline">
+                                    <input type="radio" name="marital_status" value="Single" class="styled" [(ngModel)]="newProfile['marital_status']">
+                                   Single
+                                </label>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <!-- <span><br/></span> -->
+                                <label class="radio-inline">
+                                    <input type="radio" name="mariatal_status" value="Married" class="styled" [(ngModel)]="newProfile['marital_status']">
+                                    Married
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label class="control-label">Address</label>
+                                <textarea class="form-control" name="homeAddress" [(ngModel)]="newProfile['contact_address']"></textarea>
+                            </div>
+                            <!-- <div class="form-group col-sm-5">
+                                <label class="control-label">Mother's Maiden Name</label>
+                                <input type="text" class="form-control" name="mothersMaidenName" [(ngModel)]="newProfile['Mothers Maiden Name']">
+                            </div> -->
+                        </div>
+                        <div class="row">
+                            <!-- <div class="form-group col-sm-4">
+                                <label class="control-label">Phone Number</label>
+                                <input class="form-control input-lg" type="phone" name="phoneNumber" [(ngModel)]="newProfile['phone']"/>
+                            </div> -->
+                            <!-- <div class="form-group col-sm-4">
+                                <label class="control-label">Email Address</label>
+                                <input class="form-control input-lg" type="email" name="emailAddress" [(ngModel)]="newProfile['email']"/>
+                            </div> -->
+                            <div class="form-group col-sm-6">
+                                <label class="control-label">Occupation</label>
+                                <input class="form-control input-lg" name="occupation" [(ngModel)]="newProfile['job_title']"/>
+                            </div>
+                            <!-- <div class="form-group col-sm-4"> -->
+                                <!-- <label class="control-label">Reference Contact</label> -->
+                                <!-- <input class="form-control input-lg" name="referenceContact" [(ngModel)]="newProfile['Reference Contact, Emergency']"/> -->
+                            <!-- </div> -->
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">State Of Residence</label>
+                                <input class="form-control input-lg" name="state" id="state" [(ngModel)]="newProfile['state']" (blur)="loadProviders(0)"/>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Local Govt. Area</label>
+                                <input class="form-control input-lg" name="lga" [(ngModel)]="newProfile['lga']"/>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Religion</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="religion" [(ngModel)]="newProfile['religion']">
+                                    <option></option>
+                                    <option value="christianity">Christianity</option>
+                                    <option value="catholic">Catholic</option>
+                                    <option value="islam">Islam</option>
+                                    <option value="others">Others</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label class="control-label">Preexisting Medical Condition (Current)</label>
+                                <textarea class="form-control" name="existing_condition" [(ngModel)]="newProfile['existing_medical_condition']"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label class="control-label">Previous Medical Condition (Recovered From)</label>
+                                <textarea class="form-control" name="previous_condition" [(ngModel)]="newProfile['previous_medical_condition']"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label class="control-label">Primary Healthcare Facility</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="p_facility" [(ngModel)]="newProfile['primary_health_facility']">
+                                    <!-- <option></option>
+                                    <option value="Realist Hospital Abuja">Realist Hospital Abuja</option>
+                                    <option value="Faker Hospital Lagos">Faker Hospital Lagos</option>
+                                    <option value="Scam Hospital Portharcourt">Scam Hospital Portharcourt</option>
+                                    <option value="others">Others</option> -->
+                                    <option [ngValue]="null" disabled>Select Country</option>
+                                    <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="control-label">Secondary Healthcare Facility</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="s_facily" [(ngModel)]="newProfile['secondary_health_facility']">
+                                    <option [ngValue]="null" disabled>Select Country</option>
+                                    <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}} - {{provider.plan_type}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Religion</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="religion" [(ngModel)]="newProfile['Religious Affiliation']">
+                                    <option></option>
+                                    <option value="christianity">Christianity</option>
+                                    <option value="catholic">Catholic</option>
+                                    <option value="islam">Islam</option>
+                                    <option value="others">Others</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Occupation</label>
+                                <input class="form-control input-lg" name="occupation" [(ngModel)]="newProfile['Occupation']"/>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Tribe</label>
+                                <input class="form-control" type="text" name="tribe" [(ngModel)]="newProfile['Tribe']"/>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group" *ngIf="picReady">
+                            <label class="control-label">Picture Preview</label>
+                            <div class="panel-body" id="p_pic">
+                                <img  [src]="picUrl" class="img img-responsive" style="width:100% !important; height: 100% !important;"/>
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="idReady">
+                            <label class="control-label">Identification Document Preview</label>
+                            <div class="panel-body" id="p_id">
+                                <img  [src]="idUrl" class="img img-responsive" style="width:100% !important; height: 100% !important;"/>
+                            </div>
+                        </div>
+                        <form id='dependentImages' enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label class="control-label">Upload Your Picture</label>
+                                <input type="file" class="file-styled-primary" (change)="loadImage($event, 'pic')"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Upload Identification Document</label>
+                                <input type="file" class="file-styled-primary" (change)="loadImage($event, 'id')"/>
+                                <!-- <img class="img img-responsive"/> -->
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- <div class="col-4">
+                        <div class="form-group">
+                            <label class="control-label">Upload Picture</label>
+                            <div class="panel-body" id="camera">
+                                <img src="assets/images/passport-placeholder.png" class="img img-responsive" style="width:100% !important; height: 100% !important;"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Upload Identification Document</label>
+                            <input type="file" class="file-styled-primary"/>
+                            <img class="img img-responsive"/>
+                        </div>
+                    </div> -->
+                    <div class="col-12" style="margin-top: 20px">
+                        <button class="btn btn-warning btn-lg float-left" (click)="addPrincipal = picReady = idReady = false; picUrl = idUrl = ''">
+                            Close
+                        </button>
+                        <button class="btn btn-success btn-lg float-right" (click)="saveNewProfile()">
+                            <span class="hide loader pull-left" *ngIf="processingProfile">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </span>
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 offset-md-1" *ngIf="addDependents">
+            <div class="card p-2">
+                <h3>Dependent's Bio-data</h3>
+                <div class="row global-row">
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">First Name</label>
+                                <input type="text" class="form-control" name="firstName" [(ngModel)]="newDependent['first_name']">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Surname</label>
+                                <input type="text" class="form-control" name="lastName" [(ngModel)]="newDependent['surname']">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label>Other Names</label>
+                                <input type="text" class="form-control" name="lastName" [(ngModel)]="newDependent['middle_name']">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label>Date Of Birth</label>
+                                <input type="date" class="form-control date" name="dateOfBirth" [(ngModel)]="newDependent['birth_day']">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Gender</label>
+                                <span><br/></span>
+                                <label class="radio-inline">
+                                    <input type="radio" name="genderD" value="Male" class="styled" [(ngModel)]="newDependent['gender']">
+                                    Male
+                                </label>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <!-- <span><br/></span> -->
+                                <label class="radio-inline">
+                                    <input type="radio" name="genderD" value="Female" class="styled" [(ngModel)]="newDependent['gender']">
+                                    Female
+                                </label>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Relationship</label>
+                                <span><br/></span>
+                                <label class="radio-inline">
+                                    <input type="radio" name="relationship" value="spouse" class="styled" [(ngModel)]="newDependent['relationship']">
+                                    Spouse
+                                </label>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <!-- <span><br/></span> -->
+                                <label class="radio-inline">
+                                    <input type="radio" name="relationship" value="child" class="styled" [(ngModel)]="newDependent['relationship']">
+                                    Child
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label class="control-label">Address</label>
+                                <textarea class="form-control" name="homeAddress" [(ngModel)]="newDependent['contact_address']"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Phone Number</label>
+                                <input class="form-control input-lg" type="phone" name="phoneNumber" [(ngModel)]="newDependent['phone']"/>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Email Address</label>
+                                <input class="form-control input-lg" type="email" name="emailAddress" [(ngModel)]="newDependent['email']"/>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Occupation</label>
+                                <input class="form-control input-lg" name="occupation" [(ngModel)]="newDependent['job_title']"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">State Of Residence</label>
+                                <input class="form-control input-lg" name="state" id="state" [(ngModel)]="newDependent['state']" (change)="loadProviders();"/>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Local Govt. Area</label>
+                                <input class="form-control input-lg" name="lga" [(ngModel)]="newDependent['lga']"/>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">Religion</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="religion" [(ngModel)]="newDependent['religion']">
+                                    <option></option>
+                                    <option value="christianity">Christianity</option>
+                                    <option value="catholic">Catholic</option>
+                                    <option value="islam">Islam</option>
+                                    <option value="others">Others</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label class="control-label">Preexisting Medical Condition (Current)</label>
+                                <textarea class="form-control" name="existing_condition" [(ngModel)]="newDependent['existing_medical_condition']"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label class="control-label">Previous Medical Condition (Recovered From)</label>
+                                <textarea class="form-control" name="previous_condition" [(ngModel)]="newDependent['previous_medical_condition']"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label class="control-label">Primary Healthcare Facility</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="p_facility" [(ngModel)]="newDependent['primary_health_facility']"  ng-options="for let provider of providers">
+                                    <option [ngValue]="null" disabled>Select Country</option>
+                                    <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}} - {{provider.plan_type}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="control-label">Secondary Healthcare Facility</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="s_facily" [(ngModel)]="newDependent['secondary_health_facility']">
+                                    <option [ngValue]="null" disabled>Select Country</option>
+                                    <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}} - {{provider.plan_type}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group" *ngIf="picReady">
+                            <label class="control-label">Personal Picture</label>
+                            <div class="panel-body" id="pic">
+                                <img  [src]="picUrl" class="img img-responsive" style="width:100% !important; height: 20% !important;"/>
+                                <!-- <img  src="{{picUrl}}" class="img img-responsive" style="width:100% !important; height: 100% !important;"/> -->
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="idReady">
+                            <label class="control-label">Id Image</label>
+                            <div class="panel-body" id="id">
+                                <img  [src]="idUrl" class="img img-responsive" style="width:100% !important; height: 20% !important;"/>
+                            </div>
+                        </div>
+                        <form id='dependentImages' enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label class="control-label">Upload Picture</label>
+                                <input type="file" class="file-styled-primary" (change)="loadImage($event, 'pic')" placeholder="Please Select a picture to upload"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Upload Identification Document</label>
+                                <input type="file" class="file-styled-primary" (change)="loadImage($event, 'id')" placeholder="Please Select a picture to upload"/>
+                                <!-- <img class="img img-responsive"/> -->
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-12" style="margin-top: 20px">
+                        <button class="btn btn-warning btn-lg float-left" (click)="addDependents = picReady = idReady = false; picUrl = idUrl = ''">
+                            <!-- <span class="hide loader pull-left" *ngIf="processingProfile">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </span> -->
+                            Close
+                        </button>
+                        <button class="btn btn-success btn-lg float-right" (click)="saveNewDependent()">
+                            <span class="hide loader pull-left" *ngIf="processingProfile">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </span>
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div> 
+
+    <div class="content">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="col" *ngFor="let dept of dependents, let index = index">
+              <div class="card">
+                <img
+                  src="https://mdbootstrap.com/img/new/standard/city/041.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col">
+              <div class="card">
+                <img
+                  src="https://mdbootstrap.com/img/new/standard/city/042.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img
+                  src="https://mdbootstrap.com/img/new/standard/city/043.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to
+                    additional content.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img
+                  src="https://mdbootstrap.com/img/new/standard/city/044.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                  </p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+    </div>
+</div>

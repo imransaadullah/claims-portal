@@ -19,7 +19,6 @@ export class EventsService {
       behaviorSubject = new BehaviorSubject<any>(null);
       this.behaviorSubjects.set(identifier, behaviorSubject);
     }
-
     return behaviorSubject;
   }
 

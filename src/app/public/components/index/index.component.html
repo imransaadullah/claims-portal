@@ -1,14 +1,44 @@
-<p>Welcome to EmmetBlue Claims Management Web Portal!</p>
+<div class="container-fluid">
+	<div class="d-flex align-items-center justify-content-center mx-auto">
+		<div class="row d-flex justify-content-around align-content-center">
+			<a [routerLink]="['/auth']" class="col-6 bg-slate-800 text-center my-card" (click)="setUserType('facility')">
+				<div  style="padding: 50px;">
+					Facility
+				</div> 
+			</a>
+			<a [routerLink]="['/auth']" class="col-6 bg-primary-800 text-center my-card" (click)="setUserType('provider')">
+				<div>
+					Provider
+				</div>
+			</a>
+		</div>
+	</div>
+	<p class="text-danger text-center" style="font-size: 1.5em; padding-top: 10px; font-family: 'Architects Daughter;'">Welcome To Aman Medicare</p>
+	<div class="d-flex align-items-center justify-content-center">
+		<div class="row d-flex justify-content-around align-content-center">
+			<!-- <a [routerLink]="['/auth']" class="col-6 bg-blue-800 text-center my-card" (click)="setUserType('financier')">
+				<div>
+					Financier
+				</div>
+			</a> -->
+			<a [routerLink]="['/onboarding']" class="col-6 bg-slate-800 text-center my-card" style="padding: 50px;" (click)="setUserType('c_users')">
+				<div style="padding: 50px;">
+					Patient
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
 
-<div>
+<!-- <div>
 	<p>This portal works for</p>
 
 	<ul>
 		<li>Insurance Companies: <a [routerLink]="['/admin']">Visit</a></li>
-		<li>Providers</li>
+		<li>Providers <a [routerLink]="['/provider']">Visit</a></li>
 		<li>Patients</li>
 		<li>Financiers</li>
 	</ul>
 
 	<p>There should be a front facing index here that links to the right places.</p>
-</div>
+</div> -->

@@ -1,0 +1,459 @@
+
+<div class="main">
+    <!-- Packages List -->
+    <!-- <div class="container" *ngIf="!user.disclaimer && !user.insurance_package" style="padding-bottom: 10px;"> -->
+    <div class="container"  *ngIf="!validateOk && !user.insurance_package">
+        <div class="mt-5">
+            <!-- Basic Plan -->
+            <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
+            <!-- Basic Plan -->
+            <div class="row align-items-center">
+                <div class="col-12 col-md-4">
+                <h4 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
+                    Aman Basic
+                </h4>
+        
+                <div class="text-secondary-d1 text-120">
+                    Starting @ <span class="ml-n15 align-text-bottom">#</span><span class="text-180">1500</span> / month
+                </div>
+                </div>
+                <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
+                <li>
+                    <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Coverage limit of upto N240,000
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Telemedicine
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Upto two specialist consultations per year
+                </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Basic lab and routine radiological investigations
+                </span>
+                </li>
+                </ul>
+        
+                <div class="col-12 col-md-4 text-center">
+                <span class="f-n-hover btn btn-info btn-raised px-4 py-25 w-75 text-600" (click) = "user.insurance_package = 'basic'">Select this plan</span>
+                </div>
+            </div>
+        
+            </div>
+        
+            <!-- Bronze Plan -->
+            <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
+            <!-- Silver Plan -->
+            <div class="row align-items-center">
+                <div class="col-12 col-md-4">
+                <h4 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
+                    Aman Bronze
+                </h4>
+        
+                <div class="text-secondary-d1 text-120">
+                    Starting <span class="ml-n15 align-text-bottom">#</span><span class="text-180">35,784</span> for individual and <span class="ml-n15 align-text-bottom">#</span><span class="text-180">136,122</span> for a family of six  / month
+                </div>
+                </div>
+                <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
+                <li>
+                    <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Coverage limit of upto N700,000
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Telemedicine
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Covers specialist consultation
+                </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Antenatal and Postnatal Care
+                </span>
+                </li>
+                </ul>
+        
+                <div class="col-12 col-md-4 text-center">
+                <span class="f-n-hover btn btn-info btn-raised px-4 py-25 w-75 text-600" (click) = "user.insurance_package = 'bronze'">Select this plan</span>
+                </div>
+            </div>
+        
+            </div>
+        
+            <!-- Silver Plan -->
+            <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
+            <!-- Silver Plan -->
+            <div class="row align-items-center">
+                <div class="col-12 col-md-4">
+                <h4 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
+                    Aman Silver
+                </h4>
+        
+                <div class="text-secondary-d1 text-120">
+                    Starting <span class="ml-n15 align-text-bottom">#</span><span class="text-180">55,394</span> for an individual and <span class="ml-n15 align-text-bottom">#</span><span class="text-180">203,406</span> for a family of six  / month
+                </div>
+                </div>
+                <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
+                <li>
+                    <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Coverage limit of upto N1,400,000
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Telemedicine
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Covers specialist consultation
+                </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Antenatal and Postnatal Care
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Surgery limit of upto N150,000
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Covers immunizations
+                    </span>
+                </li>
+                </ul>
+        
+                <div class="col-12 col-md-4 text-center">
+                <span class="f-n-hover btn btn-info btn-raised px-4 py-25 w-75 text-600" (click) = "user.insurance_package = 'silver'">Select this plan</span>
+                </div>
+            </div>
+        
+            </div>
+        
+        
+            <!-- Gold Plan -->
+            <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
+            <!-- Silver Plan -->
+            <div class="row align-items-center">
+                <div class="col-12 col-md-4">
+                <h4 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
+                    Aman Gold
+                </h4>
+        
+                <div class="text-secondary-d1 text-120">
+                    Starting <span class="ml-n15 align-text-bottom">#</span><span class="text-180">96,066</span> for an individual and <span class="ml-n15 align-text-bottom">#</span><span class="text-180">356,365</span> for a family of six  / month
+                </div>
+                </div>
+                <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
+                <li>
+                    <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Coverage limit of upto N3,600,000
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Telemedicine
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Covers specialist consultation
+                </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Antenatal and Postnatal Care
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Surgery limit of upto N500,000
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Covers immunizations
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Private Wards (upto 20 days per annum)
+                    </span>
+                </li>
+                </ul>
+        
+                <div class="col-12 col-md-4 text-center">
+                <span class="f-n-hover btn btn-info btn-raised px-4 py-25 w-75 text-600" (click) = "user.insurance_package = 'gold'">Select this plan</span>
+                </div>
+            </div>
+        
+            </div>
+        
+            <!-- Platinum Plan -->
+            <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
+            <!-- Platinum Plan -->
+            <div class="row align-items-center">
+                <div class="col-12 col-md-4">
+                <h4 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
+                    Aman Platinum
+                </h4>
+        
+                <div class="text-secondary-d1 text-120">
+                    Starting <span class="ml-n15 align-text-bottom">#</span><span class="text-180">145,836</span> for an individual and <span class="ml-n15 align-text-bottom">#</span><span class="text-180">534,930</span> for a family of six  / month
+                </div>
+                </div>
+                <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
+                <li>
+                    <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Coverage limit of upto N5,000,000
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Telemedicine
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Covers specialist consultation
+                </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Antenatal and Postnatal Care
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Surgery limit of upto N1,000,000
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Covers immunizations
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Private Wards (upto 30 days per annum)
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Doctor home visits
+                    </span>
+                </li>
+        
+                <li class="mt-25">
+                    <i class="fa fa-check text-danger-m2 text-110 mr-2 mt-1"></i>
+                    <span class="text-110">
+                    Cancer care (upto N500,000)
+                    </span>
+                </li>
+                </ul>
+        
+                <div class="col-12 col-md-4 text-center">
+                <span class="f-n-hover btn btn-info btn-raised px-4 py-25 w-75 text-600" (click) = "user.insurance_package = 'platinum'">Select this plan</span>
+                </div>
+            </div>
+        
+            </div>
+        </div>
+    </div>
+    
+    <!-- Agreement  -->
+    <div class="container lead" *ngIf="validateOk && user.insurance_package" style="padding: 40px;">
+        <!-- <p class="note note-primary" style="padding: 30px;"> -->
+        <h6 class="note note-primary">
+            This Aman Medicare Director Insurance Agreement ("Agreement") is made
+            as of [Insert Date of Agreement], by and between Aman Medicare, a Delaware
+            corporation (the "Corporation"), and [Insert Name of Unocal Director] (the                            
+            "Director") with reference to the following facts:
+        </h6>
+        <h5>
+            RECITALS
+        </h5>                                    
+        <h6 class="note note-primary">
+            A.  The Director is currently a member of the Board of Directors of the
+            Corporation, as well as of certain subsidiaries and affiliates of the
+            Corporation, and is performing valuable services for the Corporation. The
+            Corporation wishes the Director to continue in such capacities, and the Director
+            is willing, under certain circumstances, to continue in such capacities.
+        </h6>
+
+        <h6 class="note note-primary">
+            B.  The Corporation's Certificate of Incorporation, as permitted by Section
+            102(b)(7) of the Delaware General Corporation Law, has been amended to eliminate
+            the Director's liability to the Corporation and its stockholders for monetary
+            damages for certain breaches of fiduciary duty.
+        </h6>
+
+        <h6 class="note note-primary">
+            C.  The Bylaws of the Corporation provide for the indemnification of the
+            officers, directors, agents, and employees of the Corporation to the maximum
+            extent authorized by Section 145 of the Delaware General Corporation Law, as
+            amended or as may be amended, revised, or superseded.
+        </h6>
+
+        <h6 class="note note-primary">
+            D.  The Corporation and Director have entered into a Aman Medicare
+            Director Indemnification Agreement ("Indemnification Agreement") whereby the
+            Corporation has agreed to indemnify the Director under certain circumstances.
+        </h6 >
+
+        <h6 class="note note-primary">
+            E.  The Director has indicated that he or she does not regard the
+            Corporation's Certificate of Incorporation, the indemnities available under the
+            Corporation's Bylaws, and the Indemnification Agreement as adequate to protect
+            him or her against the risks associated with his or her services to the
+            Corporation. The Director may not be willing to continue in office in the
+            absence of the further lawful protection afforded by the instant Agreement.
+        </h6>
+        <!-- </p> -->
+        <span class="btn btn-outline-primary text-capitalize float-right" (click) = "user.disclaimer = 1; registerUser()">Agree</span>
+        <span (click)="validateOk = false" class="btn btn-outline-warning text-capitalize float-left">Cancel</span>
+    </div>
+
+    <!-- <section class="signup"> -->
+    <div class="container" *ngIf="user.insurance_package && !validateOk">
+        <div class="signup-content">
+            <div class="signup-form">
+                <h2 class="form-title">Create An Account</h2>
+                <form method="POST" class="register-form" id="register-form" (submit)="onsubmit($event)">
+                    <div class="form-group">
+                        <!-- <span>Selected Insurance Plan</span> -->
+                        <span class="btn btn-primary float-right" title="Click to change package " (click)="user.insurance_package = ''">{{user.insurance_package}}</span>
+                        <!-- <label for="package"><i class="zmdi zmdi-receipt material-icons-name"></i></label>
+                        <input  id="package"  [value] = 'user.insurance_package' required disabled> -->
+                    </div>
+                    <div class="form-group">
+                        <span >Account Type</span>
+                        <select class="form-control" name="category" id="category" (change) = "changeMode($event)" [(ngModel)] = "user.category">
+                            <option value="individual">Self Pay</option>
+                            <option value="corporate">Corporate</option>
+                        </select>
+                    </div>
+                    <div class="form-group" *ngIf="organisational">
+                        <label for="name"><i class="zmdi zmdi-receipt material-icons-name"></i></label>
+                        <input type="text" name="code" id="code" placeholder="Your Association Code" [(ngModel)] = 'user.social_no' required>
+                    </div>
+                    <div class="form-group">
+                        <span >What's the Total Family Size (Principal Included) </span>
+                        <!-- <label for="enrolee_size" style="padding-right: 10px;"><i class="zmdi zmdi-account-add"></i></label> -->
+                        <select class="form-control" name="enrolee_size" id="enrolee_size" [(ngModel)] = "user.enrolee_size">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="name" id="name" placeholder="Your Name" [(ngModel)] = 'user.name' required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone"><i class="zmdi zmdi-phone material-icons-phone"></i></label>
+                        <input type="phone" name="phone" id="phone" placeholder="Your Phone Number" [(ngModel)] = 'user.phone' pattern="0[(?=9|8|7)]{1}[(?=0|1)][0-9]{8}">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone2"><i class="zmdi zmdi-phone material-icons-phone"></i></label>
+                        <input type="phone" name="phone2" id="phone2" placeholder="Confirm Phone Number" [(ngModel)] = 'confirmPhone' pattern="0[(?=9|8|7)]{1}[(?=0|1)][0-9]{8}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" [(ngModel)] = 'user.email' required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <input type="email" name="email" id="email" placeholder="Confirm Email" [(ngModel)] = 'confirmEmail' required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="pass" id="pass" placeholder="Password" [(ngModel)] = 'user.password' required>
+                    </div>
+                    <div class="form-group">
+                        <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                        <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" [(ngModel)] = 'confirm_password' required>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signup" id="signup" class="btn-lg btn-primary" value="Buy Plan" (click)="validateOk = validate();">
+                    </div>
+                    <a [routerLink]="['/auth']" class="signup-image-link btn-lg btn-outline-primary" style="margin-bottom: 15px;">I am already member</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- </section> -->
+</div>

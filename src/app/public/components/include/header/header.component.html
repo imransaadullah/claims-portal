@@ -1,0 +1,79 @@
+<div class="page-header page-header-dark">
+	<!-- Main navbar -->
+	<div class="navbar navbar-expand-md navbar-dark border-transparent px-0">
+		<div class="container">
+			<div class="navbar-brand wmin-0 mr-5">
+				<!-- <div class="page-title d-flex"> -->
+					<h4>Aman Medicare | <span class="font-italic font-size-sm text-uppercase">Claims Management Portal</span></h4>
+					<!-- <h4>{{businessInfo.BusinessName}} | <span class="font-italic font-size-sm text-uppercase">Claims Management Portal</span></h4> -->
+					<a href="#" class="header-elements-toggle text-white d-md-none"><i class="icon-more"></i></a>
+				<!-- </div> -->
+				<!-- <a href="#" class="d-inline-block">
+					<img src="assets/images/logo-white.png" alt="">
+				</a> -->
+			</div>
+			<div class="d-md-none">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+					<i class="icon-tree5"></i>
+				</button>
+			</div>
+			<!-- Nav Search Form -->
+			<!-- <form class="form-inline active-pink-4">
+				<input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+				  aria-label="Search">
+				<i class="fas fa-search" aria-hidden="true"></i>
+			</form> -->
+			<!-- User Name Dropdown -->
+			<div class="collapse navbar-collapse" id="navbar-mobile">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown dropdown-user" *ngIf="logged_in_user">
+						<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
+							<!-- <img src="{{baseUrl}}" class="rounded-circle mr-2" height="34" alt=""> -->
+							<span>{{logged_in_user.fullName}}</span>
+						</a>
+						<div class="dropdown-menu">
+							<a href="#" class="dropdown-item" (click)="logout()">Logout</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+	<!-- Secondary navbar -->
+	<!-- <div class="navbar navbar-expand-md navbar-light px-0">
+		<div class="container position-relative">
+			<app-menu></app-menu>
+		</div>
+	</div> -->
+	<!-- /secondary navbar -->
+
+	<!-- Floating menu -->
+	<!-- <ul class="fab-menu fab-menu-absolute fab-menu-top-right" data-fab-toggle="click">
+		<li>
+			<button type="button" class="fab-menu-btn btn btn-float rounded-round btn-icon theme-color-bg text-white">
+				<i class="fab-icon-open icon-plus3"></i>
+				<i class="fab-icon-close icon-cross2"></i>
+			</button>
+			<ul class="fab-menu-inner">
+				<li>
+					<div data-fab-label="Button label">
+						<a href="#" class="btn btn-light rounded-round btn-icon btn-float">
+							<i class="icon-pencil"></i>
+						</a>
+					</div>
+				</li>
+				<li>
+					<div data-fab-label="Button label">
+						<a href="#" class="btn btn-light rounded-round btn-icon btn-float">
+							<i class="icon-bubbles7"></i>
+						</a>
+						<span class="badge badge-pill bg-primary-400">5</span>
+					</div>
+				</li>
+			</ul>
+		</li>
+	</ul> -->
+	<!-- /floating menu -->
+</div>

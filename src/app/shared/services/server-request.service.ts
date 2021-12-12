@@ -15,8 +15,8 @@ export class ServerRequestService {
   constructor(private http: HttpClient, private storage: StorageService) { 
     this.storage.getItem(environment.userCookieIdentifier).subscribe(data => {
       const userInfo: any = JSON.parse(data);
-      if (userInfo != null && userInfo.token != null){
-        this.token = userInfo.token;
+      if (userInfo != null && userInfo.jwt != null){
+        this.token = userInfo.jwt;
       }
     });
   }
