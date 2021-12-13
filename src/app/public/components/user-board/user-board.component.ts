@@ -26,6 +26,7 @@ export class UserBoardComponent implements OnInit {
 
   c_user: any;
   principal_user: any;
+
   number_of_dependents: number = 0;
   dependents: any = [];
 
@@ -45,6 +46,11 @@ export class UserBoardComponent implements OnInit {
 
   picUrl: SafeUrl = '';
   idUrl: SafeUrl = '';
+
+  environment = environment;
+
+  addFacility: any = {};
+  // showAdditonalFacility = false
 
   constructor(private storage: StorageService, private toastr: ToastrService, private request: ServerRequestService, private sanitizer:DomSanitizer) { 
     this.setPreqData();
@@ -69,12 +75,11 @@ export class UserBoardComponent implements OnInit {
     })
 
     this.request.post('?getDependents', {'policy_no': this.c_user.policy_no}).subscribe(e => {
-      if(e && !e.error){
-        this.dependents = e.data;
-        // console.log(e.data)
-        return;
-      }
-      this.dependents = []
+      // if(e){
+      this.dependents = e
+      console.log(e)
+        // return;
+      // }
     })
   }
 
@@ -106,14 +111,15 @@ export class UserBoardComponent implements OnInit {
   }
 
   saveNewDependent(): void {
-    // this.setPreqData();
+    this.setPreqData();
     if(this.newDependent){
       this.newDependent.policy_no = this.c_user.policy_no;
+      // console.log(this.principal_user.insurance_no.length)
+      // console.log(this.dependents)
       if (this.principal_user){
         this.newDependent.insurance_no = `${this.principal_user.insurance_no.substring(0, this.principal_user.insurance_no.length-2)}2${this.dependents.length}`
- 
         this.form.append('data', JSON.stringify(this.newDependent))
-        console.log(this.newDependent)
+        // console.log(this.newDependent)
         this.request.post('?save-dependent-profile', this.form).subscribe(e => {
           if(e && !e.error){
             this.number_of_dependents += 1;
@@ -137,6 +143,7 @@ export class UserBoardComponent implements OnInit {
     }else{
       this.toastr.error("Please fill out the form")
     }
+    this.setPreqData();
   }
 
   loadImage(event: any, what: string): void {
@@ -166,9 +173,31 @@ export class UserBoardComponent implements OnInit {
   loadProviders(flag = 1): void {
     const data = (flag)? this.newDependent.state : this.newProfile.state;
     const plan_type = this.c_user.insurance_package
+    console.log({'state': data, 'plan_type': plan_type});
     this.request.post('?getProviders', {'state': data, 'plan_type': plan_type}).subscribe(e => {
       this.providers = e;
       console.log(e)
+    })
+  }
+
+  saveFacility(): void {
+    // console.log(this.addFacility);
+    if(this.newDependent){
+      this.newDependent.primary_health_facility = this.newDependent.secondary_health_facility = this.addFacility['name'];
+    }else if(this.newProfile){
+      this.newProfile.primary_health_facility = this.newProfile.secondary_health_facility = this.addFacility['name'];
+    }
+    this.request.post('?saveProvider', this.addFacility).subscribe(e => {
+      if(e.data){
+        // this.showAdditonalFacility = false;
+        document.getElementById('close')?.click();
+        if(!this.providers[0].name){
+          this.providers.pop();
+        }
+        this.providers.push(this.addFacility);
+      }else{
+        this.toastr.error('An Error Occured while trying to add')
+      }
     })
   }
 }

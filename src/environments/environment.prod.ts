@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
-  serverUrlEndpoint: 'https://api.emmetblue.ng/v1/',
+  serverUrlEndpoint: 'http://app.amanmedicare.org/',
+  // serverUrlEndpoint: 'https://api.emmetblue.ng/v1/',
   userCookieIdentifier: '_______'
 };

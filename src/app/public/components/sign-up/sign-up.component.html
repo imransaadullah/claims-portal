@@ -4,6 +4,7 @@
     <!-- <div class="container" *ngIf="!user.disclaimer && !user.insurance_package" style="padding-bottom: 10px;"> -->
     <div class="container"  *ngIf="!validateOk && !user.insurance_package">
         <div class="mt-5">
+            <a [routerLink]="['/auth']" class="signup-image-link btn btn-outline-primary btn-raised px-4 py-25 w-25 text-600 float-right" style="margin-bottom: 15px;">I am already member</a>
             <!-- Basic Plan -->
             <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
             <!-- Basic Plan -->
@@ -322,60 +323,15 @@
                 <span class="f-n-hover btn btn-info btn-raised px-4 py-25 w-75 text-600" (click) = "user.insurance_package = 'platinum'">Select this plan</span>
                 </div>
             </div>
-        
+            
             </div>
         </div>
     </div>
     
     <!-- Agreement  -->
+    <!-- <div class="container lead"style="padding: 40px; with: 100%"> -->
     <div class="container lead" *ngIf="validateOk && user.insurance_package" style="padding: 40px;">
-        <!-- <p class="note note-primary" style="padding: 30px;"> -->
-        <h6 class="note note-primary">
-            This Aman Medicare Director Insurance Agreement ("Agreement") is made
-            as of [Insert Date of Agreement], by and between Aman Medicare, a Delaware
-            corporation (the "Corporation"), and [Insert Name of Unocal Director] (the                            
-            "Director") with reference to the following facts:
-        </h6>
-        <h5>
-            RECITALS
-        </h5>                                    
-        <h6 class="note note-primary">
-            A.  The Director is currently a member of the Board of Directors of the
-            Corporation, as well as of certain subsidiaries and affiliates of the
-            Corporation, and is performing valuable services for the Corporation. The
-            Corporation wishes the Director to continue in such capacities, and the Director
-            is willing, under certain circumstances, to continue in such capacities.
-        </h6>
-
-        <h6 class="note note-primary">
-            B.  The Corporation's Certificate of Incorporation, as permitted by Section
-            102(b)(7) of the Delaware General Corporation Law, has been amended to eliminate
-            the Director's liability to the Corporation and its stockholders for monetary
-            damages for certain breaches of fiduciary duty.
-        </h6>
-
-        <h6 class="note note-primary">
-            C.  The Bylaws of the Corporation provide for the indemnification of the
-            officers, directors, agents, and employees of the Corporation to the maximum
-            extent authorized by Section 145 of the Delaware General Corporation Law, as
-            amended or as may be amended, revised, or superseded.
-        </h6>
-
-        <h6 class="note note-primary">
-            D.  The Corporation and Director have entered into a Aman Medicare
-            Director Indemnification Agreement ("Indemnification Agreement") whereby the
-            Corporation has agreed to indemnify the Director under certain circumstances.
-        </h6 >
-
-        <h6 class="note note-primary">
-            E.  The Director has indicated that he or she does not regard the
-            Corporation's Certificate of Incorporation, the indemnities available under the
-            Corporation's Bylaws, and the Indemnification Agreement as adequate to protect
-            him or her against the risks associated with his or her services to the
-            Corporation. The Director may not be willing to continue in office in the
-            absence of the further lawful protection afforded by the instant Agreement.
-        </h6>
-        <!-- </p> -->
+        <iframe id="serviceFrameSend" [src]="termsUrl" width="1100" height="500"  frameborder="0"></iframe>
         <span class="btn btn-outline-primary text-capitalize float-right" (click) = "user.disclaimer = 1; registerUser()">Agree</span>
         <span (click)="validateOk = false" class="btn btn-outline-warning text-capitalize float-left">Cancel</span>
     </div>

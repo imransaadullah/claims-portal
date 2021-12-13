@@ -9,7 +9,7 @@
                     <span class="text-center btn btn-lg btn-outline-primary" style="width: 100%;" (click)="addPrincipal = true; addDependents = false;"><i class="fa fa-plus"></i> Create a principal package</span>
                 </div>
             </div>
-            <div class="d-flex justify-content-cnter"  style="width: 100%; margin-top: 10px;">
+            <div class="d-flex justify-content-cnter"  style="width: 100%; margin-top: 10px;" *ngIf="principal_user">
                 <div style="width: 100%;">
                     <span class="text-center btn btn-lg btn-outline-primary "  style="width: 100%;" (click)="addPrincipal = false; addDependents = true;"><i class="fa fa-plus"></i> Add Dependents</span>
                 </div>
@@ -118,6 +118,29 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label class="control-label">Primary Healthcare Facility</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="p_facility" [(ngModel)]="newProfile['primary_health_facility']">
+                                    <option [ngValue]="null" disabled>Select Facility</option>
+                                    <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="control-label">Secondary Healthcare Facility</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="s_facily" [(ngModel)]="newProfile['secondary_health_facility']">
+                                    <option [ngValue]="null" disabled>Select Facility</option>
+                                    <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}} - {{provider.plan_type}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12 float-right">
+                                <button type="button" class="btn btn-lg btn-outline-warning" data-toggle="modal" data-target="#exampleModalCenter">Suggest A Facility</button>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="form-group col-12">
                                 <label class="control-label">Preexisting Medical Condition (Current)</label>
                                 <textarea class="form-control" name="existing_condition" [(ngModel)]="newProfile['existing_medical_condition']"></textarea>
@@ -129,17 +152,12 @@
                                 <textarea class="form-control" name="previous_condition" [(ngModel)]="newProfile['previous_medical_condition']"></textarea>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="form-group col-sm-6">
                                 <label class="control-label">Primary Healthcare Facility</label>
                                 <span><br/></span>
                                 <select class="select form-control" name="p_facility" [(ngModel)]="newProfile['primary_health_facility']">
-                                    <!-- <option></option>
-                                    <option value="Realist Hospital Abuja">Realist Hospital Abuja</option>
-                                    <option value="Faker Hospital Lagos">Faker Hospital Lagos</option>
-                                    <option value="Scam Hospital Portharcourt">Scam Hospital Portharcourt</option>
-                                    <option value="others">Others</option> -->
-                                    <option [ngValue]="null" disabled>Select Country</option>
+                                    <option [ngValue]="null" disabled>Select Facility</option>
                                     <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}}</option>
                                 </select>
                             </div>
@@ -147,11 +165,16 @@
                                 <label class="control-label">Secondary Healthcare Facility</label>
                                 <span><br/></span>
                                 <select class="select form-control" name="s_facily" [(ngModel)]="newProfile['secondary_health_facility']">
-                                    <option [ngValue]="null" disabled>Select Country</option>
+                                    <option [ngValue]="null" disabled>Select Facility</option>
                                     <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}} - {{provider.plan_type}}</option>
                                 </select>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12 float-right">
+                                <button type="button" class="btn btn-lg btn-outline-warning" data-toggle="modal" data-target="#exampleModalCenter">Suggest A Facility</button>
+                            </div>
+                        </div> -->
                         <!-- <div class="row">
                             <div class="form-group col-sm-4">
                                 <label class="control-label">Religion</label>
@@ -322,6 +345,29 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label class="control-label">Primary Healthcare Facility</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="p_facility" [(ngModel)]="newDependent['primary_health_facility']"  ng-options="for let provider of providers">
+                                    <option [ngValue]="null" disabled>Select Provider</option>
+                                    <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}} - {{provider.plan_type}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="control-label">Secondary Healthcare Facility</label>
+                                <span><br/></span>
+                                <select class="select form-control" name="s_facily" [(ngModel)]="newDependent['secondary_health_facility']">
+                                    <option [ngValue]="null" disabled>Select Provider</option>
+                                    <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}} - {{provider.plan_type}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12 float-right">
+                                <button type="button" class="btn btn-lg btn-outline-warning" data-toggle="modal" data-target="#exampleModalCenter">Suggest A Health Facility</button>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="form-group col-12">
                                 <label class="control-label">Preexisting Medical Condition (Current)</label>
                                 <textarea class="form-control" name="existing_condition" [(ngModel)]="newDependent['existing_medical_condition']"></textarea>
@@ -333,26 +379,8 @@
                                 <textarea class="form-control" name="previous_condition" [(ngModel)]="newDependent['previous_medical_condition']"></textarea>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-sm-6">
-                                <label class="control-label">Primary Healthcare Facility</label>
-                                <span><br/></span>
-                                <select class="select form-control" name="p_facility" [(ngModel)]="newDependent['primary_health_facility']"  ng-options="for let provider of providers">
-                                    <option [ngValue]="null" disabled>Select Country</option>
-                                    <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}} - {{provider.plan_type}}</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label class="control-label">Secondary Healthcare Facility</label>
-                                <span><br/></span>
-                                <select class="select form-control" name="s_facily" [(ngModel)]="newDependent['secondary_health_facility']">
-                                    <option [ngValue]="null" disabled>Select Country</option>
-                                    <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}} - {{provider.plan_type}}</option>
-                                </select>
-                            </div>
-                        </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-md-4">
                         <div class="form-group" *ngIf="picReady">
                             <label class="control-label">Personal Picture</label>
                             <div class="panel-body" id="pic">
@@ -397,24 +425,65 @@
         </div>    
     </div> 
 
-    <div class="content">
+    <div class="content" *ngIf="!addDependents && !addPrincipal">
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
-            <div class="col" *ngFor="let dept of dependents, let index = index">
-              <div class="card">
-                <img
-                  src="https://mdbootstrap.com/img/new/standard/city/041.jpg"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    This is a longer card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.
-                  </p>
+            <div class="col-md-3">
+                <div class="card"  *ngIf="principal_user">
+                    <img
+                        [src]="environment.serverUrlEndpoint + principal_user.pic_name"
+                        class="card-img-top"
+                        alt="..."
+                        style="height: 400px;"
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ principal_user.surname.toUpperCase() }}, {{principal_user.first_name }} {{principal_user.middle_name }}</h5>
+                        <p class="card-text">
+                            Principal Account Holder<br>
+                            Policy Number: {{principal_user.policy_no}} <br>
+                            Insurance Number: {{principal_user.insurance_no}} <br>
+                            Insurance Package: {{principal_user.insurance_package.toUpperCase() }} <br>
+                            Primary Health Facility: {{principal_user.primary_health_facility }} <br>
+                            Secondary Health Facility: {{principal_user.secondary_health_facility }} <br>
+                            Date Registered: {{principal_user.date }} <br>
+                        </p>
+                    </div>
                 </div>
-              </div>
+                <!-- <div class="card"  *ngFor="let dept of dependents, let index = index">
+                    <img
+                    src="https://mdbootstrap.com/img/new/standard/city/041.jpg"
+                    class="card-img-top"
+                    alt="..."
+                    />
+                    <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        This is a longer card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.
+                    </p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-md-3"  *ngFor="let dept of dependents, let index = index">
+                <div class="card">
+                    <img
+                        [src]="environment.serverUrlEndpoint + dept.pic_name"
+                        class="card-img-top"
+                        alt="..."
+                        style="height: 400px;"
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ dept.surname.toUpperCase() }}, {{dept.first_name }} {{dept.middle_name }}</h5>
+                        <p class="card-text">
+                            Dependent<br>
+                            Policy Number: {{dept.policy_no}} <br>
+                            Insurance Number: {{dept.insurance_no}} <br>
+                            Primary Health Facility: {{dept.primary_health_facility }} <br>
+                            Secondary Health Facility: {{dept.secondary_health_facility }} <br>
+                            Date Registered: {{dept.date }} <br>
+                        </p>
+                    </div>
+                </div>
             </div>
             <!-- <div class="col">
               <div class="card">
@@ -465,5 +534,61 @@
               </div>
             </div> -->
           </div>
+    </div>
+    
+</div>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop='static'>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Add Healthcare Facility</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id='close'>
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <label class="control-label">Facility Name</label>
+                    <span><br/></span>
+                    <input type="text" class="select form-control" name="a_facility_name" [(ngModel)]="addFacility['name']">
+                </div>
+                <div class="form-group col-sm-12">
+                    <label class="control-label">State</label>
+                    <span><br/></span>
+                    <input type="text" class="select form-control" name="p_facility" [(ngModel)]="addFacility['state']">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label">City</label>
+                    <span><br/></span>
+                    <input type="text" class="select form-control" name="p_facility" [(ngModel)]="addFacility['city']">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label">Address</label>
+                    <span><br/></span>
+                    <textarea class="select form-control" name="p_facility" [(ngModel)]="addFacility['address']"></textarea>
+                </div>
+                <!-- <div class="form-group col-sm-6">
+                    <label class="control-label">Secondary Healthcare Facility</label>
+                    <span><br/></span>
+                    <select class="select form-control" name="s_facily" [(ngModel)]="newDependent['secondary_health_facility']">
+                        <option [ngValue]="null" disabled>Select Provider</option>
+                        <option *ngFor="let provider of providers" [ngValue]="provider.name">{{provider.name}} - {{provider.state}} - {{provider.city}} - {{provider.plan_type}}</option>
+                    </select>
+                </div> -->
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="saveFacility()">Save changes</button>
+        </div>
+        </div>
     </div>
 </div>

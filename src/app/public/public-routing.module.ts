@@ -5,6 +5,7 @@ import { IndexComponent } from "./components/index/index.component";
 import { AuthComponent } from './components/auth/auth.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { UserBoardComponent } from './components/user-board/user-board.component';
+import { TermsComponent } from './terms/terms.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,12 @@ const routes: Routes = [
   {
     path: 'userboard',
     component: UserBoardComponent
+  },
+  {
+    path: 'terms',
+    component: TermsComponent
   }
+  // TermsandConditionsAmanMedicare.html
 ];
 
 @NgModule({

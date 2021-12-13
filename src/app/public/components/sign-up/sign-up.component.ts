@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { ThrowStmt } from '@angular/compiler';
 import { StorageService } from 'src/app/shared/services/storage.service';
+import { DomSanitizer, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
+// import {  } from '@angular/platform-browser';
 
 
 @Component({
@@ -40,10 +42,14 @@ export class SignUpComponent implements OnInit {
   validateOk = false;
   // hasAgreed = false;
 
+  termsUrl: SafeResourceUrl;
+   url = "/terms";
 
-  constructor(private http: HttpClient, private auth: AuthService, private toastr: ToastrService, private router: Router, private storage: StorageService) { }
+
+  constructor(private http: HttpClient, private auth: AuthService, private toastr: ToastrService, private router: Router, private storage: StorageService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.termsUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
 
   generate_policy_no(): void {

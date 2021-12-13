@@ -10,6 +10,7 @@ import { UserBoardComponent } from './components/user-board/user-board.component
 import { HeaderComponent } from './components/include/header/header.component';
 import { MenuComponent } from './components/include/menu/menu.component';
 import { FooterComponent } from './components/include/footer/footer.component';
+import { TermsComponent } from './terms/terms.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FooterComponent } from './components/include/footer/footer.component';
     UserBoardComponent,
     HeaderComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    TermsComponent
   ],
   imports: [
     CommonModule,
